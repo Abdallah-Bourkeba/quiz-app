@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>Quiz App</title>
+  <link rel="shortcut icon" href="images/logo-icon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="master.css" />
+</head>
+
+<body>
+  <div class="step step-welcome">
+    <h1 class="main-heading welcome">Welcome</h1>
+    <p class="description">You can create your quiz here</p>
+    <div class="btn btn-start">Start</div>
+  </div>
+  <div class="step step-create">
+    <div class="main-heading create">Create Quiz</div>
+    <div class="quiz-title-input-container">
+      <input title="Title Will Show In The Quiz" placeholder="Quiz Title" type="text" class="inp quiz-title-input" />
+      <input title="Duration in minutes" value="5" min="0.5" type="number" class="inp quiz-duration-input" />
+    </div>
+    <div class="questions-container-input"></div>
+    <div class="control-btns">
+      <div class="choose-type-controls">
+        <div class="btn btn-apply">Apply</div>
+        <select class="types">
+          <option value="choose">Choose</option>
+          <option value="mutiAnswers">Multiple Answers</option>
+          <option value="match">Match</option>
+          <option value="complete">Complete</option>
+          <option value="trueOrFalse">True Or False</option>
+          <option value="typing">Typing</option>
+        </select>
+      </div>
+      <div data-error="Fill All Inputs Field First" class="btn btn-submit">Submit</div>
+    </div>
+  </div>
+  <div class="step step-reload">
+    <div class="main-heading reload">Reload</div>
+    <p class="description">You Should Reload Before Apply The Quiz</p>
+    <div class="btn btn-reload">Reload</div>
+  </div>
+  <div class="step step-go">
+    <div class="main-heading go">Quiz</div>
+    <div class="quiz-title"></div>
+    <div class="description">
+      Answer The Following Questions
+    </div>
+    <div class="btn btn-go">Go</div>
+  </div>
+  <div class="step step-show">
+    <div class="quiz-title"></div>
+    <div class="control-quiz">
+      <div class="ratio">
+        <div data-message="Total Questions" class="count"></div>
+        <span class="arrow">&rarr;</span>
+        <div data-message="Finished Questions" class="finshed-count">0</div>
+      </div>
+      <div data-message="Time To Finish The Quiz" class="timer-down"></div>
+      <div data-message="Correct Answers" class="count-true-q">0</div>
+      <div data-message="Wrong Answers" class="count-false-q">0</div>
+    </div>
+    <div class="questions-container-show"></div>
+    <div class="control-btns">
+      <div data-error="You Should Answer This Question" class="btn btn-check">check</div>
+      <div class="btn btn-next">next</div>
+      <div class="btn btn-end">end</div>
+    </div>
+    <div class="overlay">
+      <div class="popup step">
+        <div class="final-message main-heading"></div>
+        <div class="control-quiz">
+          <div data-message="Total Questions" class="count"></div>
+          <div data-message="You Have Finished The Quiz In This Time" class="timer-finished"></div>
+          <div data-message="Correct Answers" class="count-true-q">0</div>
+          <div data-message="Wrong Answers" class="count-false-q">0</div>
+        </div>
+        <div class="btns-final">
+          <div class="btn btn-again">again</div>
+          <div class="btn btn-reset">Reset</div>
+          <div class="btn btn-download">download</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/variables.js"></script>
+  <script src="js/handler-create.js"></script>
+  <script src="js/handler-show.js"></script>
+  <script src="js/handler-edit.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/download.js"></script>
+  <!-- <script src="js/dev-tool-controller.js"></script> -->
+</body>
+
+</html>
