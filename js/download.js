@@ -29,7 +29,7 @@ function generatHTMLContent(arr) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <title>Quiz App</title>
-  <link rel="shortcut icon" href="" />
+  <link rel="shortcut icon" href="https://abdallah-mohamed-sayed.github.io/quiz-app/images/logo-icon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet" />
@@ -1599,10 +1599,10 @@ function startHandlerShowJSFile() {
 		let finalMessage = document.querySelector(".final-message");
 		if (qeustionsArray.length === countOfCorrectQuestions) {
 			finalMessage.innerHTML = "Congratulations!";
-			let successAudio = new Audio("audios/Final-Success.mp3");
+			let successAudio = new Audio("https://abdallah-mohamed-sayed.github.io/quiz-app/audios/Final-Success.mp3");
 			successAudio.play();
 		} else {
-			let unSuccessAudio = new Audio("audios/Final-Unsuccess.mp3");
+			let unSuccessAudio = new Audio("https://abdallah-mohamed-sayed.github.io/quiz-app/audios/Final-Unsuccess.mp3");
 			unSuccessAudio.play();
 			finalMessage.innerHTML = "Try Again, You can do it!";
 		}
@@ -1664,14 +1664,14 @@ function succesSound(increment = true) {
 	if (increment) {
 		++countOfCorrectQuestions;
 	}
-	let correctSound = new Audio("audios/Correct.mp3");
+	let correctSound = new Audio("https://abdallah-mohamed-sayed.github.io/quiz-app/audios/Correct.mp3");
 	correctSound.play();
 }
 function unSccesSound(increment = true) {
 	if (increment) {
 		++countOfWrongQuestions;
 	}
-	let wrongtSound = new Audio("audios/Wrong.mp3");
+	let wrongtSound = new Audio("https://abdallah-mohamed-sayed.github.io/quiz-app/audios/Wrong.mp3");
 	wrongtSound.play();
 }
 
@@ -2016,6 +2016,86 @@ function pushStringToShow(htmlString) {
 	questionContainerShow.appendChild(element);
 	return element;
 }
+let noPrint = true;
+let noCopy = true;
+let noScreenshot = true;
+let autoBlur = false;
+
+if (noCopy) {
+	document.body.oncopy = function () {
+		return false;
+	};
+	document.onkeydown = function (e) {
+		if (e.ctrlKey == true && e.keyCode == 83) {
+			e.preventDefault();
+		}
+	};
+}
+
+if (noPrint) {
+	let c = document.createElement("span");
+	c.style.display = "none";
+	c.style.postion = "absolute";
+	c.style.background = "#000";
+	document.body.insertBefore(c, document.body.firstChild);
+	c.setAttribute("width", document.body.scrollWidth);
+	c.setAttribute("height", document.body.scrollHeight);
+	c.style.display = "block";
+	let cssNode3 = document.createElement("style");
+	cssNode3.type = "text/css";
+	cssNode3.media = "print";
+	cssNode3.innerHTML = "body{display:none}";
+	document.head.appendChild(cssNode3);
+}
+
+document.addEventListener("keyup", (e) => {
+	if (e.key == "PrintScreen") {
+		if (noScreenshot) {
+			navigator.clipboard.writeText("");
+		}
+	}
+});
+
+document.addEventListener("keydown", (e) => {
+	if (e.ctrlKey && e.key == "p") {
+		if (noPrint) {
+			e.cancelBubble = true;
+			e.preventDefault();
+			e.stopImmediatePropagation();
+		}
+	}
+});
+
+document.onkeydown = (e) => {
+	if (e.ctrlKey && e.shiftKey && e.keyCode == "I".charCodeAt(0)) {
+		return false;
+	}
+	if (e.ctrlKey && e.shiftKey && e.keyCode == "J".charCodeAt(0)) {
+		return false;
+	}
+	if (e.ctrlKey && e.shiftKey && e.keyCode == "C".charCodeAt(0)) {
+		return false;
+	}
+	if (e.ctrlKey && e.shiftKey && e.keyCode == "M".charCodeAt(0)) {
+		return false;
+	}
+	if (e.ctrlKey && e.keyCode == 67) {
+		return false;
+	}
+	if (e.ctrlKey && e.keyCode == 85) {
+		return false;
+	}
+	if (e.ctrlKey && e.keyCode == 88) {
+		return false;
+	}
+	if (e.keyCode === 123) {
+		return false;
+	}
+};
+
+document.oncontextmenu = function () {
+	return false;
+};
 
 
   </script>
@@ -2024,7 +2104,3 @@ function pushStringToShow(htmlString) {
 </html>`;
 	return HTMLContent;
 }
-
-// Dont Forget DevTool
-// And Audio
-// icons
