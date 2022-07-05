@@ -1,6 +1,6 @@
 downloadBtn.onclick = () => {
 	let arrayToPushInHTMLFile = JSON.stringify(
-		JSON.parse(window.localStorage.getItem("questions"))
+		JSON.parse(window.localStorage.getItem("quizQuestions"))
 	);
 	download(generatHTMLContent(arrayToPushInHTMLFile));
 
@@ -1057,7 +1057,7 @@ let answerCount = 1;
 let allImageUrlValid = false;
 let arrToPushToLS = ${arr};
 
-window.localStorage.setItem("questions", JSON.stringify(arrToPushToLS));
+window.localStorage.setItem("quizQuestions", JSON.stringify(arrToPushToLS));
 
 function stepsChanger(from, to) {
 	from.classList.remove("active");
@@ -1545,7 +1545,7 @@ function startHandlerShowJSFile() {
 	// Start Time Coding
 	let timerDown = document.querySelector(".timer-down");
 	let timerFinished = document.querySelector(".timer-finished");
-	let quizDuration = JSON.parse(window.localStorage.getItem("questions"))[1];
+	let quizDuration = JSON.parse(window.localStorage.getItem("quizQuestions"))[1];
 	let minuts = Math.floor(parseInt(quizDuration));
 	let seconds = (quizDuration - minuts) * 60;
 
@@ -1649,7 +1649,7 @@ function differenceTime(start, end) {
 
 function getObjectFromLSBy(qType) {
 	let questionArrayFromLoaclStorage = JSON.parse(
-		window.localStorage.getItem("questions")
+		window.localStorage.getItem("quizQuestions")
 	);
 	let result = [];
 	questionArrayFromLoaclStorage.forEach((object) => {
@@ -1702,9 +1702,9 @@ function setControlsBarValues() {
 
 if (window.localStorage.getItem("editQuesions") === "true") {
 	startHandlerEditJSFile();
-} else if (window.localStorage.getItem("questions") !== null) {
+} else if (window.localStorage.getItem("quizQuestions") !== null) {
 	let questionArrayFromLoaclStorage = JSON.parse(
-		window.localStorage.getItem("questions")
+		window.localStorage.getItem("quizQuestions")
 	);
 	quizTitleDiv.forEach((titleDiv) => {
 		titleDiv.innerHTML = questionArrayFromLoaclStorage[0];

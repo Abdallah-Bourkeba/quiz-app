@@ -200,9 +200,9 @@ submitBtn.onclick = () => {
 		if (allImageUrlValid) {
 			window.localStorage.setItem("editQuesions", "false");
 
-			window.localStorage.removeItem("questions");
+			window.localStorage.removeItem("quizQuestions");
 			window.localStorage.setItem(
-				"questions",
+				"quizQuestions",
 				JSON.stringify(arrayToPushFromStepCreate)
 			);
 			stepsChanger(stepCreate, stepReload);
@@ -285,9 +285,9 @@ class QTyping extends QComplete {
 
 if (window.localStorage.getItem("editQuesions") === "true") {
 	startHandlerEditJSFile();
-} else if (window.localStorage.getItem("questions") !== null) {
+} else if (window.localStorage.getItem("quizQuestions") !== null) {
 	let questionArrayFromLoaclStorage = JSON.parse(
-		window.localStorage.getItem("questions")
+		window.localStorage.getItem("quizQuestions")
 	);
 	quizTitleDiv.forEach((titleDiv) => {
 		titleDiv.innerHTML = questionArrayFromLoaclStorage[0];

@@ -1,5 +1,5 @@
 function startHandlerEditJSFile() {
-	let arrayFromLS = JSON.parse(window.localStorage.getItem("questions"));
+	let arrayFromLS = JSON.parse(window.localStorage.getItem("quizQuestions"));
 
 	stepWelcome.classList.remove("active");
 	stepsChanger(stepShow, stepCreate);

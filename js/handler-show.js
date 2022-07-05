@@ -472,7 +472,9 @@ function startHandlerShowJSFile() {
 	// Start Time Coding
 	let timerDown = document.querySelector(".timer-down");
 	let timerFinished = document.querySelector(".timer-finished");
-	let quizDuration = JSON.parse(window.localStorage.getItem("questions"))[1];
+	let quizDuration = JSON.parse(
+		window.localStorage.getItem("quizQuestions")
+	)[1];
 	let minuts = Math.floor(parseInt(quizDuration));
 	let seconds = (quizDuration - minuts) * 60;
 
@@ -576,7 +578,7 @@ function differenceTime(start, end) {
 
 function getObjectFromLSBy(qType) {
 	let questionArrayFromLoaclStorage = JSON.parse(
-		window.localStorage.getItem("questions")
+		window.localStorage.getItem("quizQuestions")
 	);
 	let result = [];
 	questionArrayFromLoaclStorage.forEach((object) => {
