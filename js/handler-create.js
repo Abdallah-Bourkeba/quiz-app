@@ -217,7 +217,7 @@ function imageHandlerFanc() {
 	let imageUrlInput = document.querySelectorAll(".image-url");
 	imageUrlInput.forEach((input) => {
 		allImageUrlValid = true;
-		input.value !== "" ? .(input) : "";
+		input.value !== "" ? imageUrlFunc(input) : "";
 		input.oninput = () => {
 			imageUrlFunc(input);
 		};
