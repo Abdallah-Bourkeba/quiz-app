@@ -217,7 +217,7 @@ function imageHandlerFanc() {
 	let imageUrlInput = document.querySelectorAll(".image-url");
 	imageUrlInput.forEach((input) => {
 		allImageUrlValid = true;
-		input.value !== "" ? imageUrlFunc(input) : "";
+		input.value !== "" ? .(input) : "";
 		input.oninput = () => {
 			imageUrlFunc(input);
 		};
@@ -226,10 +226,10 @@ function imageHandlerFanc() {
 	function imageUrlFunc(input) {
 		var parser = new DOMParser();
 		let imageHtmlStr = `
-							<div class="image">
-								<img src="">
-								<div class="error">This Image Url Is Not Valid</div>
-							</div>`;
+			<div class="image">
+				<img src="">
+				<div class="error">This Image Url Is Not Valid</div>
+			</div>`;
 		var doc = parser.parseFromString(imageHtmlStr, "text/html");
 		let parentElement = input.parentElement.parentElement;
 
@@ -248,7 +248,7 @@ function imageHandlerFanc() {
 
 		parentElement.children[1].children[0].addEventListener("error", () => {
 			if (input.value === "") {
-				parentElement.children[1].children[1].classList.remove("active");
+				parentElement.querySelector(".image").remove();
 				allImageUrlValid = true;
 			} else {
 				parentElement.children[1].children[1].classList.add("active");
